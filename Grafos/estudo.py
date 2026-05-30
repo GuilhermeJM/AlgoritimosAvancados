@@ -59,7 +59,8 @@ podem ser uteis para achar o menor caminho, maior caminho, ou qualquer outra uti
 #após a teoria, vem em seguida as representações:
 
 #MAPA OU DIC
-
+""" Cada nó é representado por uma chave, onde essa chave tem uma lista como valor, nessa lista, ela 
+contem a chave dos outros nós e assim por diante. """
 grafo_01 = {
 
     "A": ["B","C","d"],
@@ -68,3 +69,28 @@ grafo_01 = {
     "D": ["A", "C"]
 
 }
+print(grafo_01,"\n","-----","\n")
+
+#MATRIZ DE ADJACENCIAS
+""" Em uma matriz não ponnderada, com N nós, vc cria uma matriz NxN, onde em uma celula Matriz[i][j],
+se houver o numero 1, quer dizer que existe uma aresta indo do nó i para o nó j. Já em um grado ponde-
+rado, em cada celula vai ficar o valor da conexão, entretanto, para definir se não há arestas, vai de 
+cada um para esolher o padrão"""
+
+grafo_02 = [
+    [0,1,1,1],
+    [1,0,1,0],
+    [1,1,0,1],
+    [1,0,1,0],
+]
+
+n = int(input())
+
+matriz = []
+for i in range(n):
+    linha = [int(x)for x in input().split()]
+    matriz.append(linha)
+print(grafo_02)
+print("---------")
+print(matriz)
+
