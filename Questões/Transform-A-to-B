@@ -1,0 +1,32 @@
+def dfs(num, chegada,pilha = None,visitados = None):
+    if visitados == None:
+        visitados = set()
+    if pilha == None:
+        pilha = []
+    pilha.append(num)
+    visitados.add(num) 
+    dobro = num*2
+    mais1 = (num*10) + 1
+    if num == chegada:
+        return pilha
+    if dobro not in visitados and dobro <= chegada:
+       teste = dfs(dobro,chegada,pilha,visitados)
+       if teste != None:
+            return pilha
+    if mais1 not in visitados and mais1 <= chegada:
+        teste = dfs(mais1,chegada,pilha,visitados)
+        if teste != None:
+            return pilha
+    pilha.pop()
+    return None 
+def main():
+    a,b = [int(x) for x in input().split()]
+    lista = dfs(a,b)
+    if lista != None:
+        print("YES")
+        print(len(lista))
+        print(*lista)
+    else: 
+        print("NO")
+
+main()
